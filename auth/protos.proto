@@ -1,0 +1,36 @@
+syntax = "proto3";
+package auth;
+
+service Authentication {
+  rpc TryLogin(TryLoginRequest) returns (TryLoginResponse) {} // TRY_LOGIN, 756
+  rpc LogMachineID(UniqueIDRequest) returns (UniqueIDResponse) {} // UNIQUEID, 813
+  rpc LangCheck(LangCheckRequest) returns (LangCheckResponse) {} // LANGCHECK, 58
+  rpc SendParams(ParamsRequest) returns (ParamsResponse) {} // GET_SESSION_PARAMETERS, 1817
+  rpc SingleSignOn(SSORequest) returns (SSOResponse) {} // SSO, 204
+  rpc SendAvailability(AvailabilityRequest) returns (AvailabilityResponse) {} // GET_AVAILABILITY_TIME, 212
+  rpc ServerDate(ServerDateRequest) returns (ServerDateResponse) {} // GDATE, 49
+}
+
+service Registration {
+  rpc InfoRetrieve(InfoRetrieveRequest) returns (InfoRetrieveResponse) {} // INFORETRIEVE, 7
+  rpc SendAvailableSets(AvailableSetsRequest) returns (AvailableSetsResponse) {} // GETAVAILABLESETS, 9
+  rpc FindUser(FindUserRequest) returns (FindUserResponse) {} // FINDUSER, 41
+  rpc ApproveName(ApproveNameRequest) returns (ApproveNameResponse) {} // APPROVENAME, 42
+  rpc Register(RegisterRequest) returns (RegisterResponse) {} // REGISTER, 43
+  rpc Update(UpdateRequest) returns (UpdateResponse) {} // UPDATE, 44
+  rpc AgeCheck(AgeCheckRequest) returns (AgeCheckResponse) {} // AC, 46
+  rpc CheckBlockTime(BlockTimeRequest) returns (BlockTimeResponse) {} // COPPA_REG_CHECKTIME, 130
+  rpc SendRealTime(RealTimeRequest) returns (RealTimeResponse) {} // COPPA_REG_GETREALTIME, 131
+  rpc CheckOldEnough(OldEnoughRequest) returns (OldEnoughResponse) // PARENT_EMAIL_REQUIRED, 146
+  rpc ValidateParent(ValidateParentRequest) returns (ValidateParentResponse) // VALIDATE_PARENT_EMAIL, 147
+  rpc SendParentEmail(SendParentEmailRequest) returns (SendParentEmailResponse) // SEND_PARENT_EMAIL, 148
+  rpc UpdateAccount(UpdateAccountRequest) returns (UpdateAccountResponse) // UPDATE_ACCOUNT, 149
+  rpc ValidateEmail(ApproveEmailRequest) returns (ApproveEmailResponse) // APPROVEEMAIL, 197
+  rpc ValidatePassword(ApprovePasswordRequest) returns (ApprovePasswordResponse) // APPROVE_PASSWORD, 203
+}
+
+service Tracing {
+  rpc Pong(PingRequest) returns (PongResponse) {} // PONG, 196
+  rpc TestLatency(LatencyTestRequest) returns (LatencyTestResponse) {} // TEST_LATENCY, 315
+  rpc ReportLatency(LatencyReportRequest) returns (LatencyReportResponse) {} // REPORT_LATENCY, 316
+}
